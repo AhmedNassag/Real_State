@@ -5,7 +5,7 @@
                 <table class="table table-bordered table-hover mb-0">
                     <tr>
                         <th>{{ trans('main.Name') }}</th>
-                        <td>{{ $data->name }}</td>
+                        <td>{{ @$data->name }}</td>
                     </tr>
                 </table>
             </div>

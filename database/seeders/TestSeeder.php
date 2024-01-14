@@ -2,13 +2,14 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 use App\Models\Category;
 use App\Models\Product;
 
+use App\Models\User;
 use App\Models\Country;
 use App\Models\City;
 use App\Models\Area;
+use App\Models\Branch;
 use Illuminate\Database\Seeder;
 
 class TestSeeder extends Seeder
@@ -52,6 +53,24 @@ class TestSeeder extends Seeder
             'name'    => 'Area',
             'city_id' => 1,
         ]);
+
+
+
+        //Branch
+        Branch::create([
+            'name'        => 'Branch',
+            'firstPhone'  => '01000000000',
+            'secondPhone' => '01111111111',
+            'address'     => '19A, Al-Obour Buildings, Salah Salem',
+            'area_id'     => 1,
+        ]);
+
+
+
+
+
+
+
 
 
 

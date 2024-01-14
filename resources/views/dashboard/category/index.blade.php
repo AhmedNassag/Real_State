@@ -161,8 +161,8 @@
                                                 <input id="delete_selected_input" type="checkbox" value="{{ $item->id }}" class="box1 mr-1" oninput="showBtnDeleteSelected()">
                                                 {{ $i }}
                                             </td>
-                                            <td class="text-center">{{ $item->name }}</td>
-                                            <td class="text-center">{{ $item->category ? $item->category->name : '' }}</td>
+                                            <td class="text-center">{{ @$item->name }}</td>
+                                            <td class="text-center">{{ @$item->category->name }}</td>
                                             <td class="text-center">
                                                 <button type="button" class="btn btn-sm btn-secondary mr-1" data-bs-toggle="modal" data-bs-target="#editModal{{ $item->id }}" title="{{ trans('main.Edit') }}"><i class="far fa-edit"></i></button>
                                                 <button type="button" class="btn btn-sm btn-danger mr-1" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $item->id }}" title="{{ trans('main.Delete') }}"><i class="far fa-trash-alt"></i></button>

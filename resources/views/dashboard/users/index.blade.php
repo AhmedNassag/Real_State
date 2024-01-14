@@ -130,9 +130,9 @@
                                                     <?php $i++; ?>
                                                     <tr>
                                                         <td class="text-center notPrint">{{ $i }}</td>
-                                                        <td class="text-center">{{ $item->name }}</td>
-                                                        <td class="text-center">{{ $item->email }}</td>
-                                                        <td class="text-center">{{ $item->mobile }}</td>
+                                                        <td class="text-center">{{ @$item->name }}</td>
+                                                        <td class="text-center">{{ @$item->email }}</td>
+                                                        <td class="text-center">{{ @$item->mobile }}</td>
                                                         <td class="text-center">
                                                             <a href="{{ route('user.changeStatus',$item->id) }}">
                                                                 @if ($item->status == 1)

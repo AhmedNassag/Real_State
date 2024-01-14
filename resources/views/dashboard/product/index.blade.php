@@ -76,9 +76,7 @@
                                     <select id="category_id" class="form-control select2" name="category_id">
                                         <option value="">{{ trans('main.All') }}</option>
                                         @foreach ($categories as $category)
-                                            <option value="{{ $category->id }}"
-                                                {{ $category_id == $category->id ? 'selected' : '' }}>
-                                                {{ $category->name }}</option>
+                                            <option value="{{ $category->id }}" {{ $category_id == $category->id ? 'selected' : '' }}> {{ $category->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -177,10 +175,9 @@
                                                             oninput="showBtnDeleteSelected()">
                                                         {{ $i }}
                                                     </td>
-                                                    <td class="text-center">{{ $item->name }}</td>
-                                                    <td class="text-center">{{ $item->price }}</td>
-                                                    <td class="text-center">
-                                                        {{ $item->category ? $item->category->name : '' }}</td>
+                                                    <td class="text-center">{{ @$item->name }}</td>
+                                                    <td class="text-center">{{ @$item->price }}</td>
+                                                    <td class="text-center">{{ @$item->category->name }}</td>
                                                     <td class="text-center notPrint">
                                                         @if ($item->media)
                                                             <img class="mb-1" src="{{ $item->media->file_path }}"
@@ -194,20 +191,9 @@
                                                         @endif
                                                     </td>
                                                     <td class="text-center">
-                                                        <button type="button" class="btn btn-sm btn-secondary mr-1"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#editModal{{ $item->id }}"
-                                                            title="{{ trans('main.Edit') }}"><i
-                                                                class="far fa-edit"></i></button>
-                                                        <button type="button" class="btn btn-sm btn-danger mr-1"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#deleteModal{{ $item->id }}"
-                                                            title="{{ trans('main.Delete') }}"><i
-                                                                class="far fa-trash-alt"></i></button>
-                                                        <a href="{{ route('product.show', $item->id) }}"
-                                                            role="button" class="btn btn-sm btn-info"
-                                                            title="{{ trans('main.Show') }}"><i
-                                                                class="far fa-eye"></i></a>
+                                                        <button type="button" class="btn btn-sm btn-secondary mr-1" data-bs-toggle="modal" data-bs-target="#editModal{{ $item->id }}" title="{{ trans('main.Edit') }}"><i class="far fa-edit"></i></button>
+                                                        <button type="button" class="btn btn-sm btn-danger mr-1" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $item->id }}" title="{{ trans('main.Delete') }}"><i class="far fa-trash-alt"></i></button>
+                                                        <a href="{{ route('product.show', $item->id) }}" role="button" class="btn btn-sm btn-info" title="{{ trans('main.Show') }}"><i class="far fa-eye"></i></a>
                                                     </td>
                                                 </tr>
                                                 @include('dashboard.product.editModal')
@@ -219,8 +205,7 @@
                                                     <div class="col mb-3 d-flex">
                                                         <div class="card flex-fill">
                                                             <div class="card-body p-3 text-center">
-                                                                <p class="card-text f-12">
-                                                                    {{ trans('main.No Data Founded') }}</p>
+                                                                <p class="card-text f-12">{{ trans('main.No Data Founded') }}</p>
                                                             </div>
                                                         </div>
                                                     </div>

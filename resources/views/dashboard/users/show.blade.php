@@ -51,7 +51,7 @@
                                         {{ trans('main.Name') }}
                                         <span class="size d-flex" data-toggle="tooltip" title="small">
                                             <label for="name" class="mb-0">
-                                                <span id="name" class="font-weight-bold">{{ $user->name }}</span>
+                                                <span id="name" class="font-weight-bold">{{ @$user->name }}</span>
                                             </label>
                                         </span>
                                     </div>
@@ -62,7 +62,7 @@
                                         {{ trans('main.Email') }}
                                         <span class="size d-flex" data-toggle="tooltip" title="small">
                                             <label for="email" class="mb-0">
-                                                <span id="email" class="font-weight-bold">{{ $user->email }}</span>
+                                                <span id="email" class="font-weight-bold">{{ @$user->email }}</span>
                                             </label>
                                         </span>
                                     </div>
@@ -73,7 +73,7 @@
                                         {{ trans('main.Mobile') }}
                                         <span class="size d-flex" data-toggle="tooltip" title="small">
                                             <label for="mobile" class="mb-0">
-                                                <span id="mobile" class="font-weight-bold">{{ $user->mobile }}</span>
+                                                <span id="mobile" class="font-weight-bold">{{ @$user->mobile }}</span>
                                             </label>
                                         </span>
                                     </div>

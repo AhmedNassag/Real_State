@@ -43,6 +43,12 @@ class RepoServiceProvider extends ServiceProvider
             'App\Repositories\Dashboard\Area\AreaInterface',
             'App\Repositories\Dashboard\Area\AreaRepository',
         );
+
+        //Branch
+        $this->app->bind(
+            'App\Repositories\Dashboard\Branch\BranchInterface',
+            'App\Repositories\Dashboard\Branch\BranchRepository',
+        );
     }
 
     /**

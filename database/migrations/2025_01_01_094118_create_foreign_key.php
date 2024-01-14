@@ -27,6 +27,11 @@ class CreateForeignKey extends Migration
         Schema::table('areas', function (Blueprint $table) {
             $table->foreignId('city_id')->nullable()->constrained('cities')->cascadeOnDelete()->cascadeOnUpdate();
         });
+
+        //branches
+        Schema::table('branches', function (Blueprint $table) {
+            $table->foreignId('area_id')->nullable()->constrained('areas')->cascadeOnDelete()->cascadeOnUpdate();
+        });
     }
 
     /**

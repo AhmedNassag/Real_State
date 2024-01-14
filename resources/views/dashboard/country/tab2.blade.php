@@ -6,7 +6,7 @@
                     @foreach ($data->cities as $city)
                         <tr>
                             <th>{{ trans('main.City') }}</th>
-                            <td>{{ $city->name }}</td>
+                            <td>{{ @$city->name }}</td>
                         </tr>
                     @endforeach
                 </table>

@@ -1,6 +1,6 @@
 <!-- Start Modal -->
 <div class="modal fade custom-modal" id="addModal">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
 
             <div class="modal-header">

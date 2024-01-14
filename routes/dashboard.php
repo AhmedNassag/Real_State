@@ -2,17 +2,19 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\LangController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\GeneralController;
-use App\Http\Controllers\Dashboard\RoleController;
-use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\ProductController;
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LangController;
+use App\Http\Controllers\GeneralController;
+use App\Http\Controllers\Dashboard\RoleController;
+use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\CountryController;
 use App\Http\Controllers\Dashboard\CityController;
 use App\Http\Controllers\Dashboard\AreaController;
+use App\Http\Controllers\Dashboard\BranchController;
+
 
 
 
@@ -81,6 +83,13 @@ Route::Group(['prefix' => 'admin', 'middleware' => ['auth','lang']], function ()
     Route::resource('area', AreaController::class);
     Route::post('areaDeleteSelected', [AreaController::class, 'deleteSelected'])->name('area.deleteSelected');
     Route::get('areaShowNotification/{id}/{notification_id}', [AreaController::class, 'showNotification'])->name('area.showNotification');
+
+
+
+    //branch
+    Route::resource('branch', BranchController::class);
+    Route::post('branchDeleteSelected', [BranchController::class, 'deleteSelected'])->name('branch.deleteSelected');
+    Route::get('branchShowNotification/{id}/{notification_id}', [BranchController::class, 'showNotification'])->name('branch.showNotification');
 
 
 

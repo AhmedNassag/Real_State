@@ -49,6 +49,15 @@
 
 
 
+				<!-- branch -->
+                {{-- @can('عرض فرع') --}}
+				<li class="{{ Request::is('admin/branch', 'admin/branch/*') ? 'active' : '' }}">
+					<a href="{{ route('branch.index') }}"><i data-feather="copy"></i> <span>{{ trans('main.Branches') }}</span></a>
+				</li>
+                {{-- @endcan --}}
+
+
+
 				<!-- category -->
 				<li class="{{ Request::is('admin/category') ? 'active' : '' }}">
 					<a href="{{ route('category.index') }}"><i data-feather="copy"></i> <span>{{ trans('main.Categories') }}</span></a>

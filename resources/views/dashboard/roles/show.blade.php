@@ -94,7 +94,7 @@
                                                 <div class="col mb-3 d-flex">
                                                     <div class="card flex-fill">
                                                         <div class="card-body p-3 text-center">
-                                                        <p class="card-text f-12">{{ $value->name }}</p>
+                                                        <p class="card-text f-12">{{ @$value->name }}</p>
                                                         </div>
                                                         <div class="card-footer">
                                                             <label class="form-group toggle-switch mb-0">

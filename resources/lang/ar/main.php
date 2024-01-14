@@ -88,4 +88,11 @@ return [
     'City'      => 'المدينة',
     'Areas'     => 'المناطق',
     'Area'      => 'المنطقة',
+
+    //Branch
+    'Branch'       => 'الفرع',
+    'Branches'     => 'الفروع',
+    'First Phone'  => 'الرقم الأول',
+    'Second Phone' => 'الرقم الثاني',
+    'Address'      => 'العنوان',
 ];

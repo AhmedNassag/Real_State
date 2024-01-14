@@ -118,7 +118,7 @@
                                                     <?php $i++; ?>
                                                     <tr>
                                                         <td class="text-center">{{ $i }}</td>
-                                                        <td class="text-center">{{ $role->name }}</td>
+                                                        <td class="text-center">{{ @$role->name }}</td>
                                                         <td class="text-center">
                                                             @can('عرض صلاحية')
                                                                 <a type="button" class="btn btn-sm btn-info me-2" href="{{ route('role.show', $role->id) }}" title="{{ trans('main.Show') }}"><i class="fas fa-user-shield"></i></a>

@@ -94,15 +94,15 @@
                                     <table class="table table-bordered table-hover mb-0">
                                         <tr>
                                             <th>{{ trans('main.Name') }}</th>
-                                            <td>{{ $data->name }}</td>
+                                            <td>{{ @$data->name }}</td>
                                         </tr>
                                         <tr>
                                             <th>{{ trans('main.Price') }}</th>
-                                            <td>{{ $data->price }}</td>
+                                            <td>{{ @$data->price }}</td>
                                         </tr>
                                         <tr>
                                             <th>{{ trans('main.Category') }}</th>
-                                            <td>{{ $data->category ? $data->category->name : '' }}</td>
+                                            <td>{{ @$data->category->name }}</td>
                                         </tr>
                                         <tr>
                                             <th>{{ trans('main.Photo') }}</th>

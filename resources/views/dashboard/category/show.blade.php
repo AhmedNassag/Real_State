@@ -94,11 +94,11 @@
                                 <table class="table table-bordered table-hover mb-0">
                                     <tr>
                                         <th>{{ trans('main.Name') }}</th>
-                                        <td>{{ $data->name }}</td>
+                                        <td>{{ @$data->name }}</td>
                                     </tr>
                                     <tr>
                                         <th>{{ trans('main.Parent Category') }}</th>
-                                        <td>{{ $data->category ? $data->category->name : '' }}</td>
+                                        <td>{{ @$data->category->name }}</td>
                                     </tr>
                                     <tr>
                                         <th>{{ trans('main.Products') }}</th>
@@ -106,7 +106,7 @@
                                             <ul>
                                                 @foreach ($data->products as $product)
                                                     <li>
-                                                        {{ $product->name }}
+                                                        {{ @$product->name }}
                                                     </li>
                                                 @endforeach
                                             </ul>

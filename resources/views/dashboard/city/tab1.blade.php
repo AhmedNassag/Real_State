@@ -5,11 +5,11 @@
                 <table class="table table-bordered table-hover mb-0">
                     <tr>
                         <th>{{ trans('main.Name') }}</th>
-                        <td>{{ $data->name }}</td>
+                        <td>{{ @$data->name }}</td>
                     </tr>
                     <tr>
                         <th>{{ trans('main.Country') }}</th>
-                        <td>{{ $data->country->name }}</td>
+                        <td>{{ @$data->country->name }}</td>
                     </tr>
                 </table>
             </div>

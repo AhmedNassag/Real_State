@@ -19,4 +19,9 @@ class Area extends Model
     {
         return $this->belongsTo(City::class, 'city_id');
     }
+
+    public function branches()
+    {
+        return $this->hasMany(Branch::class, 'area_id');
+    }
 }

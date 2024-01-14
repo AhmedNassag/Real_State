@@ -1,4 +1,4 @@
-<?php $page="cities";?>
+<?php $page="branches";?>
 
 @extends('layouts.master')
 
@@ -12,7 +12,7 @@
         }
     </style>
     @section('title')
-        {{ trans('main.Cities') }}
+        {{ trans('main.Branches') }}
     @stop
 @endsection
 
@@ -26,10 +26,10 @@
             <div class="page-header">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h3 class="page-title">{{ trans('main.Cities') }}</h3>
+                        <h3 class="page-title">{{ trans('main.Branches') }}</h3>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">{{ trans('main.Dashboard') }}</a></li>
-                            <li class="breadcrumb-item active">{{ trans('main.Cities') }}</li>
+                            <li class="breadcrumb-item active">{{ trans('main.Branches') }}</li>
                         </ul>
                     </div>
                     <div class="col-auto">
@@ -48,9 +48,9 @@
             <!-- /Page Header -->
 
             <!-- Search Filter -->
-            <div class="card filter-card" id="filter_inputs" @if($name || $city_id || $from_date || $to_date) style="display:block" @endif>
+            <div class="card filter-card" id="filter_inputs" @if($name || $area_id || $from_date || $to_date) style="display:block" @endif>
                 <div class="card-body pb-0">
-                    <form action="{{ route('area.index') }}" method="get">
+                    <form action="{{ route('branch.index') }}" method="get">
                         <div class="row filter-row">
                             <!-- name -->
                             <div class="col-sm-6 col-md-3">
@@ -59,17 +59,17 @@
                                     <input id="name" class="form-control" type="text" name="name" value="{{ $name }}" autocomplete="off">
                                 </div>
                             </div>
-                            <!-- city_id -->
+                            <!-- area_id -->
                             <div class="col-sm-6 col-md-3">
                                 <div class="form-group">
-                                    <label for="city_id">{{ trans('main.City') }} :</label>
-                                    <select id="city_id" class="form-control select2" name="city_id">
+                                    <label for="area_id">{{ trans('main.Area') }} :</label>
+                                    <select id="area_id" class="form-control select2" name="area_id">
                                         <option value="">{{ trans('main.All') }}</option>
                                         @php
-                                            $cities = App\Models\City::get(['id','name']);
+                                            $areas = App\Models\Area::get(['id','name']);
                                         @endphp
-                                        @foreach($cities as $city)
-                                            <option value="{{ $city->id }}" {{ $city_id == $city->id ? 'selected' : '' }}>{{ $city->name }}</option>
+                                        @foreach($areas as $area)
+                                            <option value="{{ $area->id }}" {{ $area_id == $area->id ? 'selected' : '' }}>{{ $area->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -152,7 +152,10 @@
                                         <tr>
                                             <th class="text-center">#</th>
                                             <th class="text-center">{{ trans('main.Name') }}</th>
-                                            <th class="text-center">{{ trans('main.City') }}</th>
+                                            <th class="text-center">{{ trans('main.First Phone') }}</th>
+                                            <th class="text-center">{{ trans('main.Second Phone') }}</th>
+                                            <th class="text-center">{{ trans('main.Address') }}</th>
+                                            <th class="text-center">{{ trans('main.Area') }}</th>
                                             <th class="text-center">{{ trans('main.Actions') }}</th>
                                         </tr>
                                     </thead>
@@ -167,19 +170,22 @@
                                                 {{ $i }}
                                             </td>
                                             <td class="text-center">{{ @$item->name }}</td>
-                                            <td class="text-center">{{ @$item->city->name }}</td>
+                                            <td class="text-center">{{ @$item->firstPhone }}</td>
+                                            <td class="text-center">{{ @$item->secondPhone }}</td>
+                                            <td class="text-center">{{ @$item->address }}</td>
+                                            <td class="text-center">{{ @$item->area->name }}</td>
                                             <td class="text-center">
                                                 <button type="button" class="btn btn-sm btn-secondary mr-1" data-bs-toggle="modal" data-bs-target="#editModal{{ $item->id }}" title="{{ trans('main.Edit') }}"><i class="far fa-edit"></i></button>
                                                 <button type="button" class="btn btn-sm btn-danger mr-1" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $item->id }}" title="{{ trans('main.Delete') }}"><i class="far fa-trash-alt"></i></button>
-                                                <a href="{{ route('area.show', $item->id) }}" role="button" class="btn btn-sm btn-info" title="{{ trans('main.Show') }}"><i class="far fa-eye"></i></a>
+                                                <a href="{{ route('branch.show', $item->id) }}" role="button" class="btn btn-sm btn-info" title="{{ trans('main.Show') }}"><i class="far fa-eye"></i></a>
                                             </td>
                                         </tr>
-                                        @include('dashboard.area.editModal')
-                                        @include('dashboard.area.deleteModal')
+                                        @include('dashboard.branch.editModal')
+                                        @include('dashboard.branch.deleteModal')
                                         @endforeach
                                         @else
                                         <tr>
-                                            <th class="text-center" colspan="4">
+                                            <th class="text-center" colspan="7">
                                                 <div class="col mb-3 d-flex">
                                                     <div class="card flex-fill">
                                                         <div class="card-body p-3 text-center">
@@ -197,8 +203,8 @@
                         </div>
                     </div>
                 </div>
-                @include('dashboard.area.addModal')
-                @include('dashboard.area.deleteSelectedModal')
+                @include('dashboard.branch.addModal')
+                @include('dashboard.branch.deleteSelectedModal')
             </div>
         </div>
     </div>
